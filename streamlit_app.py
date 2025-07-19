@@ -25,9 +25,10 @@ ingredients_list=st.multiselect('Choose up to 5 ingrediens: '
 if ingredients_list:
     ingredients_string = ''
     for fruit_chosen in ingredients_list:
-      smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/banana")
-      st_sf = st.dataframe(data=smoothiefroot_response.json(), use_container_width = True)
       ingredients_string += fruit_chosen+ ' '
+      st.subheader(fruit_chosen+' Nutrution Information')
+      smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit"+fruit_chosen)
+      st_sf = st.dataframe(data=smoothiefroot_response.json(), use_container_width = True)
     st.write(ingredients_string)
      
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
