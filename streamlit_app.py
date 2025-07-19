@@ -39,4 +39,4 @@ if ingredients_list:
 
 import requests
 smoothiefroot_response = requests.get("https://fruityvice.com/api/fruit/banana")
-st.text(smoothiefroot_response.json(), use_container_witdth = True)
+st.text(smoothiefroot_response.json(), use_container_width = True)
